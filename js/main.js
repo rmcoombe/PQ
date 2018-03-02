@@ -1,8 +1,8 @@
-var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO,'')
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '');
 
-game.state.add('Boot',PrincessQuest.Boot);
-game.state.add('Preload',PrincessQuest.Preload);
-game.state.add('MainMenu',PrincessQuest.MainMenu);
-game.state.add('Game',PrincessQuest.Game);
+game.state.add('Boot', ZenvaRunner.Boot);
+game.state.add('Preloader', ZenvaRunner.Preload);
+game.state.add('MainMenu', ZenvaRunner.MainMenu);
+game.state.add('Game', ZenvaRunner.Game);
 
 game.state.start('Boot');

@@ -2,28 +2,35 @@
 <html>
 
 <head>
-<title>Princess Quest 3 </title>
+  <title>Zenva Runner</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="minimal-ui">
 
-<!--To make the game playable on apple-->
-<meta name ="apple-mobile-web-app-capable" content="yes">
-<meta name ="viewport" content="minimal-ui">
+  <!-- include the phaser library -->
+  <script src="js/library/phaser.js"></script>
 
-<script src="js/library/phaser.js"></script>
+  <!-- include the game states -->
+  <script src="js/game/states/Boot.js"></script>
+  <script src="js/game/states/Preload.js"></script>
+  <script src="js/game/states/MainMenu.js"></script>
+  <script src="js/game/states/Game.js"></script>
 
-<!--Game States-->
-<script src="js/game/states/boot.js"></script>
-<script src="js/game/states/preload.js"></script>
-<script src="js/game/states/MainMenu.js"></script>
-<script src="js/game/states/game.js"></script>
-<!--Game Prefabs-->
+  <!-- include our prefabs -->
+  <script src="js/game/prefabs/Coin.js"></script>
+  <script src="js/game/prefabs/Enemy.js"></script>
+  <script src="js/game/prefabs/Scoreboard.js"></script>
+  
 
-<style>
-	body{
-		padding: 0px; 
-		margin: 0px;
-	}
-</style>
+  <style>
+  body {
+    padding: 0px;
+    margin: 0px;
+  }
+  </style>
 </head>
+
 <body>
-<script src="js/main.js"></script>
+  
+  <!-- include the main game file -->
+  <script src="js/main.js"></script>
 </body>

@@ -1,40 +1,37 @@
-PrincessQuest.MainMenu = function() {};
+ZenvaRunner.MainMenu = function() {};
 
-PrincessQuest.MainMenu.prototype = {
-	create: function(){
-		this.background = this.game.add.tileSprite(0,0,this.game.width,452,'background');
-		this.background.autoScroll(-100,0);
-		this.ground = this.game.add.tileSprite(0,this.game.height-149,this.game.width,73,'ground');
-		this.ground.autoScroll(-100,0);
+ZenvaRunner.MainMenu.prototype = {
+  create: function() {
+    this.background = this.game.add.tileSprite(0, 0, this.game.width, 512, 'background');
+    this.background.autoScroll(-100, 0);
+
+    this.foreground = this.game.add.tileSprite(0, 470, this.game.width, this.game.height - 533, 'foreground');
+    this.foreground.autoScroll(-100,0);
+
+    this.ground = this.game.add.tileSprite(0, this.game.height - 73, this.game.width, 73, 'ground');
+    this.ground.autoScroll(-400, 0);
+
+    this.player = this.add.sprite(200, this.game.height/2, 'player');
+    this.player.anchor.setTo(0.5);
+    this.player.scale.setTo(0.3);
+
+    this.player.animations.add('fly', [0,1,2,3,2,1]);
+    this.player.animations.play('fly', 8, true);
+
+    this.game.add.tween(this.player).to({y: this.player.y - 16}, 500, Phaser.Easing.Linear.NONE, true, 0, Infinity, true);
+
+    this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
+    this.splash.anchor.setTo(0.5);
 
 
-		this.player = this.add.sprite(200, this.game.height-300, 'player');
-		this.player.anchor.setTo(0.5);
-		this.player.scale.setTo(0.3);
+    this.startText = this.game.add.bitmapText(0,0, 'minecraftia', 'tap to start', 32);
+    this.startText.x = this.game.width / 2 - this.startText.textWidth / 2;
+    this.startText.y = this.game.height / 2 + this.splash.height / 2;
 
-		this.player.animations.add('walk', [0,1,2,3,4,5,6,7,8,9]);
-		this.player.animations.play('walk', 10, true);
-
-		//this.game.add.tween(this.player).to({y: this.player.y -2}, 500, Phaser.Easing.Linear.NONE, true, 0, Infinity, true);
-	
-		this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
-    	this.splash.anchor.setTo(0.5);
-
-    	this.game.physics.startSystem(Phaser.Physics.ARCADE);
-		this.game.physics.arcade.gravity.y = 400;
-		
-		this.game.physics.arcade.enableBody (this.ground);
-		this.ground.body.allowGravity = false;
-		this.ground.body.immovable = true;
-
-		this.game.physics.arcade.enableBody(this.player);
-		this.player.body.collideWorldBounds = true;
-	},
-	update: function(){
-		if (this.game.input.activePointer.justPressed()) {
-			this.game.state.start('Game');
-		}
-		this.game.physics.arcade.collide(this.player, this.ground);
-
-	}
+  },
+  update: function() {
+    if(this.game.input.activePointer.justPressed()) {
+      this.game.state.start('Game');
+    }
+  }
 };

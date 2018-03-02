@@ -1,8 +1,8 @@
-PrincessQuest.Preload = function() {
+ZenvaRunner.Preload = function() {
   this.ready = false;
 };
 
-PrincessQuest.Preload.prototype = {
+ZenvaRunner.Preload.prototype = {
   preload: function() {
 
     this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
@@ -15,11 +15,10 @@ PrincessQuest.Preload.prototype = {
 
     this.load.image('ground', 'assets/images/ground.png');
     this.load.image('background', 'assets/images/background.png');
-   
+    this.load.image('foreground', 'assets/images/foreground.png');
 
     this.load.spritesheet('coins', 'assets/images/coins-ps.png', 51, 51, 7);
-    this.load.spritesheet('player', 'assets/images/knightWalk-ps.png', 587, 667, 10);
-    this.load.spritesheet('playerIdle', 'assets/images/knightIdle-ps.png', 587, 606, 10);
+    this.load.spritesheet('player', 'assets/images/jetpack-ps.png', 229, 296, 4);
     this.load.spritesheet('missile', 'assets/images/missiles-ps.png', 361, 218, 4);
 
     this.load.audio('gameMusic', ['assets/audio/Pamgaea.mp3', 'assets/audio/Pamgaea.ogg']);
@@ -28,7 +27,7 @@ PrincessQuest.Preload.prototype = {
     this.load.audio('coin', 'assets/audio/coin.wav');
     this.load.audio('death', 'assets/audio/death.wav');
 
-    this.load.bitmapFont('rocket', 'assets/fonts/rocket/rocket.png', 'assets/fonts/rocket/rocket.xml');
+    this.load.bitmapFont('minecraftia', 'assets/fonts/minecraftia/minecraftia.png', 'assets/fonts/minecraftia/minecraftia.xml');
 
     this.load.onLoadComplete.add(this.onLoadComplete, this);
   },
